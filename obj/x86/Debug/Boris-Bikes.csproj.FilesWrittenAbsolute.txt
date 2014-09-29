@@ -3,3 +3,4 @@
 /Users/user/Documents/csharp_projects/Boris-Bikes/Boris-Bikes/bin/Debug/Boris-Bikes.exe
 /Users/user/Documents/csharp_projects/Boris-Bikes/Boris-Bikes/obj/x86/Debug/Boris-Bikes.exe
 /Users/user/Documents/csharp_projects/Boris-Bikes/Boris-Bikes/obj/x86/Debug/Boris-Bikes.exe.mdb
+/Users/user/Documents/csharp_projects/Boris-Bikes/Boris-Bikes/bin/Debug/Moq.dll
