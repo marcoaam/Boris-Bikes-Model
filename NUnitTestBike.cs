@@ -4,19 +4,25 @@ using System;
 namespace BorisBikes
 {
 	[TestFixture ()]
-	public class NUnitTestBike
+	public class BikeTest
 	{
+		Bike bike;
+
+		[SetUp]
+		public void Init()
+		{
+			bike = new Bike();
+		}
+
 		[Test ()]
 		public void IsBikeBroken ()
 		{
-			Bike bike = new Bike ();
 			Assert.IsFalse(bike.IsBroken());
 		}
 
 		[Test ()]
 		public void BreakBike ()
 		{
-			Bike bike = new Bike ();
 			bike.Break();
 			Assert.IsTrue(bike.IsBroken());
 		}
