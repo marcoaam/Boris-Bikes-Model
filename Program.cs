@@ -6,7 +6,6 @@ namespace BorisBikes
 	{
 		public static void Main (string[] args)
 		{
-			Bike bike = new Bike ();
 			Person marco = new Person ();
 			Station station = new Station ();
 

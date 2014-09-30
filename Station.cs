@@ -13,15 +13,15 @@ namespace BorisBikes
 
 		public void Add (ArrayList bikes)
 		{
-			foreach(object bike in bikes)
+			foreach(object Bike in bikes)
 			{
-				Bikes.Push (bike);
+				Bikes.Push (Bike);
 			}
 		}
 
 		public object ReleaseBike()
 		{
-			return Bikes.Pop ();
+			return (Bikes.Count > 0) ? Bikes.Pop () : null;
 		}
 	}
 }

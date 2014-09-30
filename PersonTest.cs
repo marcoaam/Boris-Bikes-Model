@@ -17,13 +17,13 @@ namespace BorisBikes
 		}
 
 		[Test ()]
-		public void HasNoBike ()
+		public void HasNoBikeWhenCreated ()
 		{
 			Assert.IsFalse (marco.HasBike());
 		}
 
 		[Test()]
-		public void HasBike ()
+		public void CanRentBikes ()
 		{
 			var bike = new Bike ();
 			var station = new Station ();
