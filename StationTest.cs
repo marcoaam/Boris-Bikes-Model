@@ -23,6 +23,29 @@ namespace BorisBikes
 			station.Add (bikes);
 			Assert.IsNotEmpty (station.Bikes);
 		}
+
+		[Test ()]
+		public void CanReleaseBikes ()
+		{
+			Bike bike = new Bike();
+			ArrayList bikes = new ArrayList { bike };
+			Station station = new Station ();
+			station.Add (bikes);
+			station.ReleaseBike ();
+			Assert.IsEmpty (station.Bikes);
+		}
+
+		[Test ()]
+		public void CanReleaseOnlyNonBrokenBikes ()
+		{
+			Bike bike = new Bike();
+			ArrayList bikes = new ArrayList { bike };
+			Station station = new Station ();
+			station.Add (bikes);
+			bike.Break ();
+			station.ReleaseBike ();
+			Assert.IsNotEmpty (station.Bikes);
+		}
 	}
 }
 
