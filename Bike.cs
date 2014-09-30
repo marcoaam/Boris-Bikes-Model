@@ -8,12 +8,12 @@ namespace BorisBikes
 
 		public bool IsBroken()
 		{
-			return Broken;
+			return this.Broken;
 		}
 
 		public void Break()
 		{
-			Broken = true;
+			this.Broken = true;
 		}
 	}
 }

@@ -10,3 +10,7 @@ Get the basics of C# syntax and get started with Nunit testing framework using M
 ### Classes
 
 I started with the simplest class that is the Bike class and then worked up from there to more complex classes.
+
+### Testing
+
+All the tests are being executed with real objects instead of mocks at the moment.

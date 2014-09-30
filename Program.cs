@@ -6,6 +6,15 @@ namespace BorisBikes
 	{
 		public static void Main (string[] args)
 		{
+			Bike bike = new Bike ();
+			Person marco = new Person ();
+			Station station = new Station ();
+
+			Console.WriteLine (marco.HasBike());
+			marco.RentBikeFrom (station);
+			Console.WriteLine (marco.HasBike ());
+			Console.WriteLine (marco.Bike);
+			Console.ReadLine ();
 		}
 	}
 }

@@ -8,11 +8,12 @@ namespace BorisBikes
 
 		public bool HasBike ()
 		{
-			return (Bike != null) ? true : false;
+			return (this.Bike is Bike) ? true : false;
 		}
 
-		public void RentBikeFrom (object station)
+		public void RentBikeFrom (Station station)
 		{
+			Bike = station.ReleaseBike ();
 		}
 	}
 }
