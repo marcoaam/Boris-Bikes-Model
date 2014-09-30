@@ -36,7 +36,7 @@ namespace BorisBikes
 		}
 
 		[Test ()]
-		public void CanReleaseOnlyNonBrokenBikes ()
+		public void CanReleaseOnlyNonBrokenBikesForRent ()
 		{
 			Bike bike = new Bike();
 			ArrayList bikes = new ArrayList { bike };
@@ -45,6 +45,22 @@ namespace BorisBikes
 			bike.Break ();
 			station.ReleaseBike ();
 			Assert.IsNotEmpty (station.Bikes);
+		}
+
+		[Test ()]
+		public void CanReleaseAllBrokenBikesForRepair ()
+		{
+			Bike bike = new Bike();
+			Bike broken_bike = new Bike ();
+			broken_bike.Break ();
+			ArrayList bikes = new ArrayList ();
+			bikes.Add (bike);
+			bikes.Add (broken_bike);
+			Station station = new Station ();
+			station.Add (bikes);
+			station.ReleaseAllBrokenBikes ();
+
+			CollectionAssert.DoesNotContain(station.Bikes, broken_bike );
 		}
 	}
 }
