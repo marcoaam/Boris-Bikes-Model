@@ -15,16 +15,24 @@ namespace BorisBikes
 		}
 
 		[Test ()]
-		public void IsBikeBroken ()
+		public void NotBrokenWhenCreated ()
 		{
 			Assert.IsFalse(bike.IsBroken());
 		}
 
 		[Test ()]
-		public void BreakBike ()
+		public void CanBeBroken ()
 		{
 			bike.Break();
 			Assert.IsTrue(bike.IsBroken());
+		}
+
+		[Test ()]
+		public void CanBeFixed ()
+		{
+			bike.Break ();
+			bike.Fix ();
+			Assert.IsFalse (bike.IsBroken ());
 		}
 	}
 }

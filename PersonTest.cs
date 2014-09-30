@@ -9,11 +9,15 @@ namespace BorisBikes
 	public class PersonTest
 	{
 		private Person marco;
+		private Station station;
+		private Bike bike;
 
 		[SetUp]
 		public void init()
 		{
 			marco = new Person ();	
+			bike = new Bike();
+			station = new Station ("Old Street");
 		}
 
 		[Test ()]
@@ -25,8 +29,6 @@ namespace BorisBikes
 		[Test()]
 		public void CanRentBikes ()
 		{
-			var bike = new Bike ();
-			var station = new Station("Old Street");
 			ArrayList bikes = new ArrayList { bike };
 			station.Add (bikes);
 
