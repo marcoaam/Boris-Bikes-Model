@@ -26,7 +26,7 @@ namespace BorisBikes
 		public void CanRentBikes ()
 		{
 			var bike = new Bike ();
-			var station = new Station ();
+			var station = new Station("Old Street");
 			ArrayList bikes = new ArrayList { bike };
 			station.Add (bikes);
 

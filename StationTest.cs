@@ -7,19 +7,35 @@ namespace BorisBikes
 	[TestFixture ()]
 	public class StationTest
 	{
+		private Station station;
+		private Bike bike;
+		private Bike broken_bike;
+
+		[SetUp]
+		public void init ()
+		{
+			bike = new Bike();
+			broken_bike = new Bike ();
+			broken_bike.Break ();
+			station = new Station ("Old Street");
+		}
+
+		[Test ()]
+		public void GetsCreatedWithName ()
+		{
+			Assert.AreEqual (station.name, "Old Street");
+		}
+
 		[Test ()]
 		public void HasNoBikesWhenCreated ()
 		{
-			Station station = new Station ();
 			Assert.IsEmpty (station.Bikes);
 		}
 
 		[Test ()]
 		public void CanTakeBikes ()
 		{
-			Bike bike = new Bike();
 			ArrayList bikes = new ArrayList { bike };
-			Station station = new Station ();
 			station.Add (bikes);
 			Assert.IsNotEmpty (station.Bikes);
 		}
@@ -27,9 +43,7 @@ namespace BorisBikes
 		[Test ()]
 		public void CanReleaseBikes ()
 		{
-			Bike bike = new Bike();
 			ArrayList bikes = new ArrayList { bike };
-			Station station = new Station ();
 			station.Add (bikes);
 			station.ReleaseBike ();
 			Assert.IsEmpty (station.Bikes);
@@ -38,9 +52,7 @@ namespace BorisBikes
 		[Test ()]
 		public void CanReleaseOnlyNonBrokenBikesForRent ()
 		{
-			Bike bike = new Bike();
 			ArrayList bikes = new ArrayList { bike };
-			Station station = new Station ();
 			station.Add (bikes);
 			bike.Break ();
 			station.ReleaseBike ();
@@ -50,13 +62,9 @@ namespace BorisBikes
 		[Test ()]
 		public void CanReleaseAllBrokenBikesForRepair ()
 		{
-			Bike bike = new Bike();
-			Bike broken_bike = new Bike ();
-			broken_bike.Break ();
 			ArrayList bikes = new ArrayList ();
 			bikes.Add (bike);
 			bikes.Add (broken_bike);
-			Station station = new Station ();
 			station.Add (bikes);
 			station.ReleaseAllBrokenBikes ();
 

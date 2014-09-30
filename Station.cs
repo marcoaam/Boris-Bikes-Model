@@ -6,9 +6,11 @@ namespace BorisBikes
 	public class Station
 	{
 		public ArrayList Bikes = new ArrayList();
+		public string name;
 
-		public Station ()
+		public Station (string name)
 		{
+			this.name = name;
 		}
 
 		public void Add (ArrayList bikes)
@@ -30,20 +32,9 @@ namespace BorisBikes
 			}
 		}
 
-		private Stack GetWorkingBikes ()
-		{
-			Stack WorkingBikes = new Stack ();
-			foreach (Bike bike in Bikes) {
-				if(!bike.IsBroken())
-					WorkingBikes.Push (bike);
-			}
-			return WorkingBikes;
-		}
-
 		public ArrayList ReleaseAllBrokenBikes()
 		{
 			ArrayList BrokenBikes = new ArrayList();
-
 			foreach (Bike bike in Bikes) {
 				if (bike.IsBroken()) {
 					BrokenBikes.Add (bike);
@@ -56,6 +47,16 @@ namespace BorisBikes
 		private void RemoveBikes(ArrayList bikes)
 		{
 			foreach (Bike bike in bikes) { Bikes.Remove (bike); }
+		}
+
+		private Stack GetWorkingBikes ()
+		{
+			Stack WorkingBikes = new Stack ();
+			foreach (Bike bike in Bikes) {
+				if(!bike.IsBroken())
+					WorkingBikes.Push (bike);
+			}
+			return WorkingBikes;
 		}
 	}
 }
