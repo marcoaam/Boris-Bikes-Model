@@ -37,19 +37,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Bike.cs" />
-    <Compile Include="Station.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="PersonTest.cs" />
-    <Compile Include="BikeTest.cs" />
-    <Compile Include="StationTest.cs" />
-    <Compile Include="VanTest.cs" />
-    <Compile Include="Van.cs" />
+    <Compile Include="Tests\BikeTest.cs" />
+    <Compile Include="Tests\PersonTest.cs" />
+    <Compile Include="Tests\StationTest.cs" />
+    <Compile Include="Tests\VanTest.cs" />
+    <Compile Include="Lib\Bike.cs" />
+    <Compile Include="Lib\Person.cs" />
+    <Compile Include="Lib\Program.cs" />
+    <Compile Include="Lib\Station.cs" />
+    <Compile Include="Lib\Van.cs" />
+    <Compile Include="Tests\GarageTest.cs" />
+    <Compile Include="Lib\Garage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\" />
+    <Folder Include="Lib\" />
   </ItemGroup>
 </Project>
