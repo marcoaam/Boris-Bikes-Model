@@ -47,6 +47,30 @@ namespace BorisBikes
 			}
 			return BrokenBikes;
 		}
+
+		private ArrayList GetWorkingBikes()
+		{
+			ArrayList WorkingBikes = new ArrayList();
+			foreach (Bike bike in Bikes) {
+				if (bike.IsBroken()) {
+					WorkingBikes.Add (bike);
+				}
+			}
+			return WorkingBikes;
+		}
+
+		public void RequestWorkingBikesFrom(Garage garage)
+		{
+			ArrayList WorkingBikes = garage.ReleaseWorkingBikes ();
+			LoadBikes (WorkingBikes);
+		}
+
+		public void ReleaseWorkingBikesTo (Station station)
+		{
+			station.ReceiveWorkingBikes (GetWorkingBikes());
+			RemoveBikes (GetWorkingBikes ());
+		}
+			
 	}
 }
 

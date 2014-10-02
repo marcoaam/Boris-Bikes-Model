@@ -46,6 +46,29 @@ namespace BorisBikes
 			van.ReleaseBrokenBikes (garage);
 			Assert.IsEmpty (van.Bikes);
 		}
+
+		[Test()]
+		public void CanRequestBikesGarage()
+		{
+			ArrayList bikes = new ArrayList { broken_bike };
+			station.Add (bikes);
+			van.RequestBrokenBikesFrom (station);
+			garage.FixBikes ();
+			van.RequestWorkingBikesFrom (garage);
+			Assert.IsNotEmpty (van.Bikes);
+		}
+
+		[Test()]
+		public void CanReleaseWorkingBikesTo()
+		{
+			ArrayList bikes = new ArrayList { broken_bike };
+			station.Add (bikes);
+			van.RequestBrokenBikesFrom (station);
+			garage.FixBikes ();
+			van.RequestWorkingBikesFrom (garage);
+			van.ReleaseWorkingBikesTo (station);
+			Assert.IsEmpty (van.Bikes);
+		}
 	}
 }
 

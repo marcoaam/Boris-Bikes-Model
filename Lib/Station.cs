@@ -20,13 +20,11 @@ namespace BorisBikes
 
 		public object ReleaseBike()
 		{
-			if (GetWorkingBikes().Count > 0)
-			{
+			if (GetWorkingBikes().Count > 0) {
 				var bike = GetWorkingBikes ().Pop ();
 				Bikes.Remove (bike);
 				return bike;
 			}
-
 			else {
 				return null;
 			}
@@ -57,6 +55,13 @@ namespace BorisBikes
 					WorkingBikes.Push (bike);
 			}
 			return WorkingBikes;
+		}
+
+		public void ReceiveWorkingBikes(ArrayList WorkingBikes)
+		{
+			foreach (Bike bike in WorkingBikes) {
+				Bikes.Add (bike);
+			}
 		}
 	}
 }

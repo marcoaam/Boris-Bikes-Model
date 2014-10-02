@@ -9,12 +9,14 @@ namespace BorisBikes
 	{
 		private Garage garage;
 		private Bike broken_bike;
+		private Bike bike;
 
 		[SetUp]
 		public void init ()
 		{
 			garage = new Garage();
 			broken_bike = new Bike ();
+			bike = new Bike ();
 			broken_bike.Break ();
 		}
 
@@ -39,6 +41,15 @@ namespace BorisBikes
 			garage.ReceiveBikes (broken_bikes);
 			garage.FixBikes ();
 			Assert.IsFalse (broken_bike.IsBroken());
+		}
+
+		[Test()]
+		public void CanReleaseAllWorkingBikes()
+		{
+			ArrayList all_bikes = new ArrayList { broken_bike, bike };
+			garage.ReceiveBikes (all_bikes);
+			garage.ReleaseWorkingBikes ();
+			Assert.IsFalse (garage.Bikes.Count == 1);
 		}
 	}
 }

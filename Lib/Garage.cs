@@ -23,6 +23,17 @@ namespace BorisBikes
 				bike.Fix ();
 			}
 		}
+
+		public ArrayList ReleaseWorkingBikes()
+		{
+			ArrayList WorkingBikes = new ArrayList();
+			foreach (Bike bike in Bikes) {
+				if (!bike.IsBroken()) {
+					WorkingBikes.Add (bike);
+				}
+			}
+			return WorkingBikes;
+		}
 	}
 }
 
